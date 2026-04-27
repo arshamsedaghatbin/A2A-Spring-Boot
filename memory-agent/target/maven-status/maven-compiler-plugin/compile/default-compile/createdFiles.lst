@@ -1,0 +1,12 @@
+memoryagent/entity/ConversationMemory.class
+memoryagent/JpaConfig.class
+memoryagent/entity/SessionSummary.class
+memoryagent/MicroProfileConfigBridge.class
+memoryagent/entity/UserMemory.class
+memoryagent/repository/UserMemoryRepository.class
+memoryagent/Main.class
+memoryagent/Agent$AgentCardController.class
+memoryagent/Agent.class
+memoryagent/Agent$A2AController.class
+memoryagent/repository/SessionSummaryRepository.class
+memoryagent/BankMemoryService.class

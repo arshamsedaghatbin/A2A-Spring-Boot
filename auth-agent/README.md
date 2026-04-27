@@ -1,0 +1,118 @@
+# java-agent
+
+A Java agent built with Google's Agent Development Kit (ADK).
+
+## Project Structure
+
+```
+java-agent/
+├── pom.xml                  # Maven project file
+├── src/
+│   ├── main/
+│   │   ├── java/javaagent/
+│   │   │   ├── Main.java    # Application entry point
+│   │   │   └── Agent.java   # Agent implementation
+│   │   └── resources/
+│   │       └── application.properties
+│   └── test/java/javaagent/
+│       └── unit/            # Unit tests
+│       └── e2e/             # End-to-end tests
+│           ├── integration/ # Server integration tests
+│           └── load_test/   # Load tests
+├── deployment/
+│   └── terraform/           # Infrastructure as Code
+├── Dockerfile               # Container build
+├── GEMINI.md                # AI-assisted development guide
+└── Makefile                 # Common commands
+```
+
+> **Tip:** Use [Gemini CLI](https://github.com/google-gemini/gemini-cli) for AI-assisted development - project context is pre-configured in `GEMINI.md`.
+
+## Requirements
+
+- Java 17 or later
+- Maven 3.9 or later
+- Google Cloud SDK (`gcloud`)
+- A Google Cloud project with Vertex AI enabled
+
+## Quick Start
+
+1. **Install dependencies:**
+   ```bash
+   make install
+   ```
+
+2. **Configure environment:**
+   ```bash
+   cp .env.example .env
+   # Edit .env with your Google Cloud project ID
+   ```
+
+3. **Run the playground:**
+   ```bash
+   make playground
+   ```
+   Open http://localhost:8080/dev-ui/ in your browser.
+
+## Commands
+
+| Command | Description |
+|---------|-------------|
+| `make install` | Download Maven dependencies |
+| `make playground` | Launch local development environment with web UI |
+| `make test` | Run unit and e2e integration tests |
+| `make build` | Build JAR file |
+| `make clean` | Clean build artifacts |
+| `make lint` | Run code quality checks |
+| `make local-backend` | Start server on port 8080 |
+| `make deploy` | Deploy to Cloud Run |
+| `make load-test` | Run load tests (requires running server) |
+| `make inspector` | Launch A2A Protocol Inspector |
+| `make setup-dev-env` | Set up Terraform infrastructure |
+| `make register-gemini-enterprise` | Register agent with Gemini Enterprise |
+
+## Deployment
+
+### Quick Deploy
+
+```bash
+make deploy
+```
+
+### CI/CD Pipeline
+
+See `deployment/README.md` for detailed deployment instructions.
+
+## Testing
+
+```bash
+# Run unit and e2e integration tests
+make test
+
+# Run load tests locally (start server first with `make local-backend`)
+make load-test
+
+# Run load tests against remote deployment
+make load-test URL=https://your-service.run.app
+
+# Run load tests with custom parameters
+make load-test DURATION=60 USERS=20 RAMP=5
+```
+
+Use `make inspector` to launch the A2A Protocol Inspector for interactive testing.
+
+## Keeping Up-to-Date
+
+To upgrade this project to the latest agent-starter-pack version:
+
+```bash
+uvx agent-starter-pack upgrade
+```
+
+This intelligently merges updates while preserving your customizations. Use `--dry-run` to preview changes first. See the [upgrade CLI reference](https://googlecloudplatform.github.io/agent-starter-pack/cli/upgrade.html) for details.
+
+## Learn More
+
+- [ADK for Java Documentation](https://google.github.io/adk-docs/)
+- [Vertex AI Documentation](https://cloud.google.com/vertex-ai/docs)
+- [Agent Starter Pack](https://github.com/GoogleCloudPlatform/agent-starter-pack)
