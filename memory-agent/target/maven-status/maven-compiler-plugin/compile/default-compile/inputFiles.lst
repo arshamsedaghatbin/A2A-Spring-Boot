@@ -1,0 +1,10 @@
+/Users/arsham/Downloads/bank-system-full/memory-agent/src/main/java/memoryagent/Agent.java
+/Users/arsham/Downloads/bank-system-full/memory-agent/src/main/java/memoryagent/BankMemoryService.java
+/Users/arsham/Downloads/bank-system-full/memory-agent/src/main/java/memoryagent/JpaConfig.java
+/Users/arsham/Downloads/bank-system-full/memory-agent/src/main/java/memoryagent/Main.java
+/Users/arsham/Downloads/bank-system-full/memory-agent/src/main/java/memoryagent/MicroProfileConfigBridge.java
+/Users/arsham/Downloads/bank-system-full/memory-agent/src/main/java/memoryagent/entity/ConversationMemory.java
+/Users/arsham/Downloads/bank-system-full/memory-agent/src/main/java/memoryagent/entity/SessionSummary.java
+/Users/arsham/Downloads/bank-system-full/memory-agent/src/main/java/memoryagent/entity/UserMemory.java
+/Users/arsham/Downloads/bank-system-full/memory-agent/src/main/java/memoryagent/repository/SessionSummaryRepository.java
+/Users/arsham/Downloads/bank-system-full/memory-agent/src/main/java/memoryagent/repository/UserMemoryRepository.java

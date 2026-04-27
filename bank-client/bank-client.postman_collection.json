@@ -1,0 +1,68 @@
+{
+  "info": {
+    "name": "Bank Client - Chat API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8090" },
+    { "key": "sessionId", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "1 - Start Chat",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const res = pm.response.json();",
+              "pm.collectionVars.set('sessionId', res.sessionId);",
+              "console.log('Session:', res.sessionId);",
+              "console.log('Agent says:', res.text);",
+              "pm.test('Status 200', () => pm.response.to.have.status(200));",
+              "pm.test('Got sessionId', () => pm.expect(res.sessionId).to.be.a('string'));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/chat/start",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"message\": \"I want to transfer money\"\n}"
+        }
+      }
+    },
+    {
+      "name": "2 - Reply (reuse for each answer)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const res = pm.response.json();",
+              "console.log('Type:', res.type);",
+              "console.log('Agent says:', res.text);",
+              "console.log('Done:', res.done);",
+              "pm.test('Status 200', () => pm.response.to.have.status(200));",
+              "if (res.done) {",
+              "  console.log('Conversation complete!');",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/chat/{{sessionId}}/reply",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"message\": \"YOUR_ANSWER_HERE\"\n}"
+        }
+      }
+    }
+  ]
+}

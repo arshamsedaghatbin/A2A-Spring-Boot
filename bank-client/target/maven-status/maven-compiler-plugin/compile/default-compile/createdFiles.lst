@@ -1,0 +1,11 @@
+com/bank/client/session/SessionStore$Session.class
+com/bank/client/service/ChatService.class
+com/bank/client/client/OrchestratorA2AClient$A2AResponse.class
+com/bank/client/model/ChatResponse.class
+com/bank/client/model/StepEvent.class
+com/bank/client/controller/ChatController.class
+com/bank/client/model/ChatRequest.class
+com/bank/client/session/SessionStore.class
+com/bank/client/BankClientApplication.class
+com/bank/client/client/OrchestratorA2AClient.class
+com/bank/client/client/FunTips.class
